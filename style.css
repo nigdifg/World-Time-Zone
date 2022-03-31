@@ -1,0 +1,21 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+body{
+    font-family: arial;
+    font-size: 16px;
+    background-color: linear-gradient(to right top,#ba75e2,#9441c4);
+    min-height: 100vh;
+}
+.search_select_box{
+    max-width: 400px;
+    margin: 80px auto;
+}
+.search_select_box select{
+    background-color: #9441c4 !important;
+    padding: 15px 25px;
+    color: #fff !important;
+}
+.show:hover{
+    color: yellow;
+}

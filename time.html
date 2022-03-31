@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="style.css">
+    <title>World Time zone</title>
+</head>
+
+<body class="jumbotron ">
+   
+    <span id=ct><h1 class="modal-content btn">Time zone here........... <br></h1></span><br>
+
+<form name=f1 method=post>
+    <div class="search_select_box w-100">
+    <select data-live-search="true" name=tz class="w-100 search_select_box dropdown"  onChange=world_tz()>
+    </select>
+</div>
+</form>
+
+<input type=button class="btn btn-primary show"  value='show' onClick=world_tz()>
+<script >
+    function world_tz(){
+    tz=f1.tz.options[f1.tz.options.selectedIndex].value
+    str=new Date().toLocaleString('en-us',{timeZone:tz,timeZoneName:"short"}),
+    document.getElementById('ct').innerHTML=str + " - " +  tz
+    disp_c()
+}
+function disp_c(){
+    refresh=1000
+    mytime=setTimeout('world_tz()',refresh)
+}
+var aryIannaTimeZones=[
+'Asia/Kolkata',
+  'Europe/Andorra',
+  'Asia/Dubai',
+  'Asia/Kabul',
+  'Europe/Tirane',
+  'Asia/Yerevan',
+  'Antarctica/Casey',
+  'America/Caracas',
+  'Asia/Ho_Chi_Minh',
+  'Pacific/Efate',
+  'Pacific/Wallis',
+  'Pacific/Apia',
+  'Asia/Dili',
+  'Africa/Johannesburg'
+]
+for(i=0;i<aryIannaTimeZones.length;i++){
+      addoption(document.f1.tz,aryIannaTimeZones[i],aryIannaTimeZones[i])
+  }
+  function addoption(selectbox,text,value){
+      var optn=document.createElement("OPTION")
+      optn.text=text
+      optn.value=value
+      selectbox.options.add(optn)}
+      
+</script>
+<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="scripts.js" ></script>
+</body>
+</html>
